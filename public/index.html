@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EaseEvent</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <a href="index.html" class="logo"><span>Ease</span>Event</a>
+      <button class="menu-btn" id="menuBtn">&#9776;</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#" id="navRegister">Registration</a>
+        <a href="#contact">Contact Us</a>
+        <a href="#notice">Notices</a>
+        <button id="adminLoginBtn" class="admin-btn">Admin Login</button>
+        <button class="theme-toggle" id="themeToggle">
+          <i class="fas fa-moon"></i>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Main -->
+    <main>
+      <!-- Registration Section -->
+      <section class="register-section" id="register">
+        <div class="register-box">
+          <h2>Participant Registration</h2>
+          <button id="openRegister">Register Now</button>
+        </div>
+
+        <div class="register-box" id="admin">
+          <h2>Admin Login / Signup</h2>
+          <button id="openAdminFromBox">Login as Admin</button>
+        </div>
+      </section>
+
+      <!-- Notice Section -->
+      <section class="notice-section" id="notice">
+        <h2>Upcoming Events</h2>
+        <div class="notice-container" id="noticeContainer">
+          <p>Loading upcoming events...</p>
+        </div>
+      </section>
+
+      <!-- Photos -->
+      <section class="photo-gallery" id="photos">
+        <h2>Previous Event Highlights</h2>
+        <div class="photo-slider">
+          <div class="photos">
+            <img src="photos/p1.jpg" />
+            <img src="photos/p2.jpg" />
+            <img src="photos/p3.jpg" />
+            <img src="photos/p4.jpg" />
+            <img src="photos/p5.jpg" />
+            <img src="photos/p6.jpg" />
+
+            <img src="photos/p1.jpg" />
+            <img src="photos/p2.jpg" />
+            <img src="photos/p3.jpg" />
+            <img src="photos/p4.jpg" />
+            <img src="photos/p5.jpg" />
+            <img src="photos/p6.jpg" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Reviews -->
+      <section class="reviews-section">
+        <h2>Student's Reviews</h2>
+        <div class="review-slider">
+          <div class="reviews">
+            <div class="review-box">
+              <p>"Amazing event! So well organized."</p>
+              <span>- Priya Sharma</span>
+            </div>
+            <div class="review-box">
+              <p>"Loved the cultural night!"</p>
+              <span>- Rohan Singh</span>
+            </div>
+            <div class="review-box">
+              <p>"Great platform to showcase talent."</p>
+              <span>- Meena Gupta</span>
+            </div>
+            <div class="review-box">
+              <p>"Can't wait for the next one!"</p>
+              <span>- Arjun Verma</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Student Section</h3>
+          <ul>
+            <li><a href="#">Register</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Gallery</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Admin Section</h3>
+          <ul>
+            <li><a href="#">Admin Login</a></li>
+            <li><a href="#">Manage Events</a></li>
+            <li><a href="#">View Feedback</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>Email: info@collegeevents.com</p>
+          <p>Phone: +91 98765 43210</p>
+        </div>
+      </div>
+      <p class="copyright">© 2025 College Event Management.</p>
+    </footer>
+
+    <!-- Registration Popup -->
+    <div class="modal" id="registerModal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Participant Registration</h2>
+        <form id="participantForm">
+          <input type="text" id="name" placeholder="Student Name" required />
+          <input type="text" id="course" placeholder="Course" required />
+          <input type="text" id="semester" placeholder="Semester" required />
+          <input type="email" id="email" placeholder="Email" required />
+          <input type="tel" id="phone" placeholder="Phone Number" required />
+
+          <select id="mainEvent" required>
+            <option value="">Select Event</option>
+            <option value="hackathon">Hackathon</option>
+            <option value="cultural">Cultural Fest</option>
+            <option value="other">Other</option>
+          </select>
+
+          <select id="subEvent">
+            <option value="">Select Sub Event</option>
+          </select>
+
+          <input
+            type="text"
+            id="customEvent"
+            placeholder="Describe your performance"
+            style="display: none"
+          />
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Admin Login/Signup Modal -->
+    <div class="modal" id="adminModal">
+      <div class="modal-content">
+        <span class="close" id="adminClose">&times;</span>
+        <div id="loginBox">
+          <h2>Admin Login</h2>
+          <input type="email" id="adminLoginEmail" placeholder="Email" required />
+          <input
+            type="password"
+            id="adminLoginPass"
+            placeholder="Password"
+            required
+          />
+          <button id="loginSubmit">Login</button>
+          <p>
+            Don't have account?
+            <span id="openSignup" style="color: var(--primary); cursor: pointer"
+              >Sign Up</span
+            >
+          </p>
+        </div>
+
+        <div id="signupBox" style="display: none">
+          <h2>Admin Sign Up</h2>
+          <input type="text" id="adminName" placeholder="Full Name" required />
+          <input type="email" id="adminEmail" placeholder="Email" required />
+          <input
+            type="password"
+            id="adminPass"
+            placeholder="Password"
+            required
+          />
+          <input
+            type="password"
+            id="adminRetypePass"
+            placeholder="Retype Password"
+            required
+          />
+          <button id="signupSubmit">Create Account</button>
+          <p>
+            Already have account?
+            <span id="openLogin" style="color: var(--primary); cursor: pointer"
+              >Login</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
